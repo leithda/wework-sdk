@@ -6,7 +6,7 @@ import cn.leithda.wework.sdk.service.WeworkBaseService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WeworkUserServiceWework extends WeworkBaseService {
+public class WeworkUserService extends WeworkBaseService {
 
     public static final String CREATE_USER_URL = "https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token=%s";
 

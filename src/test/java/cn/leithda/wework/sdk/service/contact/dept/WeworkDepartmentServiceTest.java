@@ -25,7 +25,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @PowerMockIgnore({"javax.net.ssl.*"})
 public class WeworkDepartmentServiceTest {
 
-    WeworkDepartmentServiceWework weworkDepartmentService;
+    WeworkDepartmentService weworkDepartmentService;
 
     @Mock
     WeworkSecret weworkSecret;
@@ -39,10 +39,10 @@ public class WeworkDepartmentServiceTest {
         AccessTokenService accessTokenService = PowerMockito.spy(new AccessTokenService());
         PowerMockito.mockStatic(HttpUtils.class);
 
-        weworkDepartmentService = new WeworkDepartmentServiceWework();
+        weworkDepartmentService = new WeworkDepartmentService();
         MemberModifier.field(AccessTokenService.class, "accessTokenCache").set(accessTokenService, accessTokenCache);
-        MemberModifier.field(WeworkDepartmentServiceWework.class, "accessTokenService").set(weworkDepartmentService, accessTokenService);
-        MemberModifier.field(WeworkDepartmentServiceWework.class, "weworkSecret").set(weworkDepartmentService, weworkSecret);
+        MemberModifier.field(WeworkDepartmentService.class, "accessTokenService").set(weworkDepartmentService, accessTokenService);
+        MemberModifier.field(WeworkDepartmentService.class, "weworkSecret").set(weworkDepartmentService, weworkSecret);
     }
 
     @Test

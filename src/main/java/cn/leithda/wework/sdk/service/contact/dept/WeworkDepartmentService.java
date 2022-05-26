@@ -6,7 +6,7 @@ import cn.leithda.wework.sdk.service.WeworkBaseService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WeworkDepartmentServiceWework extends WeworkBaseService {
+public class WeworkDepartmentService extends WeworkBaseService {
     /**
      * 获取部门列表
      */

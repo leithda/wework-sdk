@@ -74,7 +74,7 @@ public abstract class WeworkBaseService {
      * @return 响应
      */
     protected <T extends BaseResponse> T executeGet(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object... param) {
-        String accessToken = getAccessToken(CONTACT, corpId, null, false);
+        String accessToken = getAccessToken(accessTokenType, corpId, null, false);
 
         try {
             T response = returnClass.newInstance();
