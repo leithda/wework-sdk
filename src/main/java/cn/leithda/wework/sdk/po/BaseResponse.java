@@ -1,5 +1,8 @@
 package cn.leithda.wework.sdk.po;
 
+/**
+ * 企业微信基础响应
+ */
 public class BaseResponse {
     /**
      * 出错返回码，为0表示成功，非0表示调用失败

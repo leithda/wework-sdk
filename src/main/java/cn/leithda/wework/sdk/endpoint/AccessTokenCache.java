@@ -2,6 +2,8 @@ package cn.leithda.wework.sdk.endpoint;
 
 /**
  * Token 缓存扩展
+ *
+ * @author leithda
  */
 public interface AccessTokenCache {
 

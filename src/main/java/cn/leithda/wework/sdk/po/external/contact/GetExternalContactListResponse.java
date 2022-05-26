@@ -6,8 +6,13 @@ import java.util.List;
 
 /**
  * 获取客户列表响应
+ *
+ * @author leithda
  */
 public class GetExternalContactListResponse extends BaseResponse {
+    /**
+     * 外部联系人的userid列表
+     */
     List<String> external_userid;
 
     public List<String> getExternal_userid() {

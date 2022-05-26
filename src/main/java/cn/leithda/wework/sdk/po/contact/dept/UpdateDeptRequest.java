@@ -1,5 +1,10 @@
 package cn.leithda.wework.sdk.po.contact.dept;
 
+/**
+ * 更新部门请求
+ *
+ * @author leithda
+ */
 public class UpdateDeptRequest {
     /**
      * 部门id

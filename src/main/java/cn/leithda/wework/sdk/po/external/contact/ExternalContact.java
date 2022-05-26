@@ -1,5 +1,10 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+/**
+ * 客户的基本信息
+ *
+ * @author leithda
+ */
 public class ExternalContact {
     /**
      * 外部联系人的userid

@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * 子部门ID列表响应
+ *
+ * @author leithda
  */
 public class GetSimpleDeptListResponse extends BaseResponse {
     /**

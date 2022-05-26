@@ -2,7 +2,12 @@ package cn.leithda.wework.sdk.po.external.contact;
 
 import java.util.List;
 
-public class FollowUser {
+/**
+ * 企业成员客户跟进信息
+ *
+ * @author leithda
+ */
+public class FollowInfo {
     /**
      * 添加了此外部联系人的企业成员userid
      */

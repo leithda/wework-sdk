@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * 企业微信部门信息
+ *
+ * @author leithda
  */
 public class WeworkDepartment {
     /**

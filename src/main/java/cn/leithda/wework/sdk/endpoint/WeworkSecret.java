@@ -2,11 +2,14 @@ package cn.leithda.wework.sdk.endpoint;
 
 /**
  * Secret 扩展
+ *
+ * @author leithda
  */
 public interface WeworkSecret {
 
     /**
      * 获取通讯录秘钥
+     *
      * @param corpId 企业微信主体ID
      * @return 秘钥
      */
@@ -14,6 +17,7 @@ public interface WeworkSecret {
 
     /**
      * 获取客户联系秘钥
+     *
      * @param corpId 企业微信主体ID
      * @return 秘钥
      */
@@ -21,7 +25,8 @@ public interface WeworkSecret {
 
     /**
      * 获取应用秘钥
-     * @param corpId 企业微信主体ID
+     *
+     * @param corpId  企业微信主体ID
      * @param agentId 应用ID
      * @return 秘钥
      */

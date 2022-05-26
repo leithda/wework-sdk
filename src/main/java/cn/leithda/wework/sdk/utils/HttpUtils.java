@@ -6,6 +6,8 @@ import java.io.IOException;
 
 /**
  * Http 工具类
+ *
+ * @author leithda
  */
 public final class HttpUtils {
 

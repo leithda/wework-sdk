@@ -5,9 +5,17 @@ import cn.leithda.wework.sdk.po.contact.user.CreateUserRequest;
 import cn.leithda.wework.sdk.service.WeworkBaseService;
 import org.springframework.stereotype.Service;
 
+/**
+ * 成员服务
+ *
+ * @author leithda
+ */
 @Service
 public class WeworkUserService extends WeworkBaseService {
 
+    /**
+     * 创建成员
+     */
     public static final String CREATE_USER_URL = "https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token=%s";
 
     /**

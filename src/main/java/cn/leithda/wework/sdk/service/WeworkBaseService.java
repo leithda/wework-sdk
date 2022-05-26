@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 企业微信基础服务抽象类
+ *
+ * @author leithda
+ */
 public abstract class WeworkBaseService {
 
     /**
@@ -110,7 +115,7 @@ public abstract class WeworkBaseService {
      * @return 响应
      */
     protected <T extends BaseResponse> T executePost(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object request) {
-        String accessToken = getAccessToken(CONTACT, corpId, null, false);
+        String accessToken = getAccessToken(accessTokenType, corpId, null, false);
         try {
             T response = returnClass.newInstance();
             if (StringUtils.isEmpty(accessToken)) {

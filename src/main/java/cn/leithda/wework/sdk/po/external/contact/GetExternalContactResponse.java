@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * 获取客户详情响应
+ *
+ * @author leithda
  */
 public class GetExternalContactResponse extends BaseResponse {
     /**
@@ -15,7 +17,7 @@ public class GetExternalContactResponse extends BaseResponse {
     /**
      * 添加该联系人的成员
      */
-    private List<FollowUser> follow_user;
+    private List<FollowInfo> follow_user;
     /**
      * 分页的cursor，当跟进人多于500人时返回
      */
@@ -29,11 +31,11 @@ public class GetExternalContactResponse extends BaseResponse {
         this.external_contact = external_contact;
     }
 
-    public List<FollowUser> getFollow_user() {
+    public List<FollowInfo> getFollow_user() {
         return follow_user;
     }
 
-    public void setFollow_user(List<FollowUser> follow_user) {
+    public void setFollow_user(List<FollowInfo> follow_user) {
         this.follow_user = follow_user;
     }
 

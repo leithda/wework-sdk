@@ -2,13 +2,18 @@ package cn.leithda.wework.sdk.po.contact.user;
 
 import java.util.List;
 
+/**
+ * 成员对外属性
+ *
+ * @author leithda
+ */
 public class ExternalProfile {
     /**
      * 企业简称
      */
     private String external_corp_name;
     /**
-     * 视频号
+     * 视频号属性。须从企业绑定到企业微信的视频号中选择，可在“我的企业”页中查看绑定的视频号。第三方仅通讯录应用可获取；对于非第三方创建的成员，第三方通讯录应用也不可获取。注意：externalcontact/get
      */
     private WechatChannels wechat_channels;
     /**

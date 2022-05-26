@@ -88,8 +88,9 @@ public class CreateUserRequest {
      * 主部门
      */
     private Long main_department;
-
-
+    /**
+     * 对外职务，如果设置了该值，则以此作为对外展示的职务，否则以position来展示。长度12个汉字内
+     */
     private String external_position;
 
 

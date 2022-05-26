@@ -1,8 +1,13 @@
 package cn.leithda.wework.sdk.po.contact.user;
 
+/**
+ * 属性，目前支持文本、网页、小程序三种类型
+ *
+ * @author leithda
+ */
 public class Attr {
     /**
-     * 	属性类型: 0-文本 1-网页 2-小程序
+     * 属性类型: 0-文本 1-网页 2-小程序
      */
     private Long type;
     /**
@@ -18,7 +23,7 @@ public class Attr {
      */
     private Web web;
     /**
-     * 小程序类型的属性
+     * 小程序类型的属性，appid和title字段要么同时为空表示清除该属性，要么同时不为空
      */
     private Miniprogram miniprogram;
 

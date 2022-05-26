@@ -9,14 +9,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Json 工具类
+ *
+ * @author leithda
+ */
 public class JsonUtils {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     public static <T> String toJson(T entity) {
-       if(Objects.isNull(entity)){
-           return "";
-       }
+        if (Objects.isNull(entity)) {
+            return "";
+        }
         try {
             return MAPPER.writeValueAsString(entity);
         } catch (JsonProcessingException e) {
@@ -24,8 +29,8 @@ public class JsonUtils {
         }
     }
 
-    public static <T> T toObject(String json, Class<T> clazz){
-        if(StringUtils.isEmpty(json)){
+    public static <T> T toObject(String json, Class<T> clazz) {
+        if (StringUtils.isEmpty(json)) {
             return null;
         }
 
@@ -36,8 +41,8 @@ public class JsonUtils {
         }
     }
 
-    public static <T> List<T> toList(String json, Class<T> clazz){
-        if(StringUtils.isEmpty(json)){
+    public static <T> List<T> toList(String json, Class<T> clazz) {
+        if (StringUtils.isEmpty(json)) {
             return Collections.emptyList();
         }
         CollectionType collectionType = MAPPER.getTypeFactory().constructCollectionType(List.class, clazz);

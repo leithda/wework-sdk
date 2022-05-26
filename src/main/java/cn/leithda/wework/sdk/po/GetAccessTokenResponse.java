@@ -1,5 +1,8 @@
 package cn.leithda.wework.sdk.po;
 
+/**
+ * 获取Token响应
+ */
 public class GetAccessTokenResponse extends BaseResponse {
     /**
      * 获取到的凭证，最长为512字节

@@ -3,6 +3,8 @@ package cn.leithda.wework.sdk.po.contact.dept;
 
 /**
  * 企业微信子部门信息
+ *
+ * @author leithda
  */
 public class WeworkSimpleDepartment {
     /**

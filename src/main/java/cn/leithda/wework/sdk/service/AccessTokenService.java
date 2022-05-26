@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Objects;
 
+/**
+ * 企业微信Token服务
+ */
 @Service
 public class AccessTokenService {
     private static final String ACCESS_TOKEN_URL = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=%s&corpsecret=%s";

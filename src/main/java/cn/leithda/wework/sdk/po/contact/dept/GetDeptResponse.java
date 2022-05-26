@@ -4,6 +4,8 @@ import cn.leithda.wework.sdk.po.BaseResponse;
 
 /**
  * 部门详情响应
+ *
+ * @author leithda
  */
 public class GetDeptResponse extends BaseResponse {
     /**

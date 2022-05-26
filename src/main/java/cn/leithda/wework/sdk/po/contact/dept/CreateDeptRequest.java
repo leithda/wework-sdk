@@ -1,5 +1,10 @@
 package cn.leithda.wework.sdk.po.contact.dept;
 
+/**
+ * 创建部门请求
+ *
+ * @author leithda
+ */
 public class CreateDeptRequest {
     /**
      * 部门名称。同一个层级的部门名称不能重复。长度限制为1~32个字符，字符不能包括:*?"<>｜

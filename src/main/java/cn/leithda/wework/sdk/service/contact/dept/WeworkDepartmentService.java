@@ -5,6 +5,11 @@ import cn.leithda.wework.sdk.po.contact.dept.*;
 import cn.leithda.wework.sdk.service.WeworkBaseService;
 import org.springframework.stereotype.Service;
 
+/**
+ * 部门服务
+ *
+ * @author leithda
+ */
 @Service
 public class WeworkDepartmentService extends WeworkBaseService {
     /**
