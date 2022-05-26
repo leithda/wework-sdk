@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 企业微信基础服务抽象类
@@ -18,18 +19,24 @@ import java.util.List;
  */
 public abstract class WeworkBaseService {
 
+    private static final int TOKEN_EXPIRED_ERR_CODE = 42001;
+
     /**
-     * 通讯录秘钥
+     * 通讯录凭证
      */
     protected static final int CONTACT = 1;
     /**
-     * 客户联系秘钥
+     * 客户联系凭证
      */
     protected static final int EXTERNAL = 2;
     /**
-     * 应用秘钥
+     * 应用凭证
      */
     protected static final int APPLICATION = 3;
+    /**
+     * 客服凭证
+     */
+    protected static final int CUSTOMER_SERVICE = 4;
 
     @Resource
     AccessTokenService accessTokenService;
@@ -40,8 +47,8 @@ public abstract class WeworkBaseService {
     /**
      * 获取Token
      *
-     * @param accessTokenType 秘钥类型：1=通讯录，2=客户联系，3=应用秘钥（需传入agentid）
-     * @param corpId          企业微信主体ID
+     * @param accessTokenType 凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）
+     * @param corpId          企业ID
      * @param agentId         应用ID
      * @param fresh           是否强制刷新
      */
@@ -68,8 +75,8 @@ public abstract class WeworkBaseService {
     /**
      * 执行Get请求
      *
-     * @param accessTokenType secret类型，秘钥类型：1=通讯录，2=客户联系，3=应用秘钥（需传入agentid）
-     * @param corpId          企业微信主体ID
+     * @param accessTokenType secret类型，凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）
+     * @param corpId          企业ID
      * @param agentId         应用ID
      * @param fresh           是否强制刷新token
      * @param returnClass     返回类类型
@@ -79,7 +86,7 @@ public abstract class WeworkBaseService {
      * @return 响应
      */
     protected <T extends BaseResponse> T executeGet(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object... param) {
-        String accessToken = getAccessToken(accessTokenType, corpId, null, false);
+        String accessToken = getAccessToken(accessTokenType, corpId, null, fresh);
 
         try {
             T response = returnClass.newInstance();
@@ -93,7 +100,18 @@ public abstract class WeworkBaseService {
             paramList.addAll(Arrays.asList(param));
             String executeUrl = String.format(url, paramList.toArray());
             String responseText = HttpUtils.get(executeUrl);
-            return JsonUtils.toObject(responseText, returnClass);
+            if (StringUtils.isEmpty(responseText)) {
+                response.setErrcode(-2);
+                response.setErrmsg("response is empty");
+                return response;
+            }
+
+            response = JsonUtils.toObject(responseText, returnClass);
+            // token 失效则重新获取
+            if (Objects.nonNull(response) && Objects.equals(response.getErrcode(), TOKEN_EXPIRED_ERR_CODE)) {
+                return executeGet(accessTokenType, corpId, agentId, true, returnClass, url, param);
+            }
+            return response;
         } catch (Exception e) {
             // TODO: 2022/5/26 接入日志
             e.printStackTrace();
@@ -104,8 +122,8 @@ public abstract class WeworkBaseService {
     /**
      * 执行Post请求
      *
-     * @param accessTokenType secret类型，秘钥类型：1=通讯录，2=客户联系，3=应用秘钥（需传入agentid）
-     * @param corpId          企业微信主体ID
+     * @param accessTokenType secret类型，凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）
+     * @param corpId          企业ID
      * @param agentId         应用ID
      * @param fresh           是否强制刷新token
      * @param returnClass     返回类类型
@@ -126,7 +144,19 @@ public abstract class WeworkBaseService {
             String executeUrl = String.format(url, accessToken);
             String requestText = JsonUtils.toJson(request);
             String responseText = HttpUtils.post(executeUrl, requestText);
-            return JsonUtils.toObject(responseText, returnClass);
+
+            if (StringUtils.isEmpty(responseText)) {
+                response.setErrcode(-2);
+                response.setErrmsg("response is empty");
+                return response;
+            }
+            response = JsonUtils.toObject(responseText, returnClass);
+
+            // token 失效则重新获取
+            if (Objects.nonNull(response) && Objects.equals(response.getErrcode(), TOKEN_EXPIRED_ERR_CODE)) {
+                return executePost(accessTokenType, corpId, agentId, true, returnClass, url, request);
+            }
+            return response;
         } catch (Exception e) {
             // TODO: 2022/5/26 接入日志
             e.printStackTrace();

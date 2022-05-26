@@ -40,7 +40,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
     /**
      * 获取部门列表
      *
-     * @param corpId 企业微信主体ID
+     * @param corpId 企业ID
      * @param id     部门ID
      * @return 部门列表
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90208">获取部门列表</a>
@@ -52,7 +52,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
     /**
      * 获取子部门ID列表
      *
-     * @param corpId 企业微信主体ID
+     * @param corpId 企业ID
      * @param id     部门ID
      * @return 子部门ID列表
      * @see <a href="https://developer.work.weixin.qq.com/document/path/95350">获取子部门ID列表</a>
@@ -64,7 +64,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
     /**
      * 获取部门详情
      *
-     * @param corpId 企业微信主体ID
+     * @param corpId 企业ID
      * @param id     部门ID
      * @return 部门详情
      * @see <a href="https://developer.work.weixin.qq.com/document/path/95351">获取部门详情</a>
@@ -76,7 +76,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
     /**
      * 创建部门
      *
-     * @param corpId  企业微信主体ID
+     * @param corpId  企业ID
      * @param request 请求
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90205">创建部门</a>
@@ -88,7 +88,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
     /**
      * 更新部门
      *
-     * @param corpId  企业微信主体ID
+     * @param corpId  企业ID
      * @param request 请求
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90206">更新部门</a>
@@ -100,7 +100,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
     /**
      * 删除部门
      *
-     * @param corpId 企业微信主体ID
+     * @param corpId 企业ID
      * @param id     部门ID
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90207">删除部门</a>

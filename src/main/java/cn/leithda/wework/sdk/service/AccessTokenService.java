@@ -24,8 +24,8 @@ public class AccessTokenService {
      * 获取access_token
      *
      * @param fresh  是否强制刷新
-     * @param corpId 企业微信主体ID
-     * @param secret 企业微信秘钥
+     * @param corpId 企业ID
+     * @param secret 凭证
      * @return accessToken
      */
     public String getAccessToken(boolean fresh, String corpId, String secret) {

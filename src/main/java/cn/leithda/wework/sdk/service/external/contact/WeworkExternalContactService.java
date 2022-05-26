@@ -37,7 +37,7 @@ public class WeworkExternalContactService extends WeworkBaseService {
     /**
      * 获取客户列表
      *
-     * @param corpId 企业微信主体ID
+     * @param corpId 企业ID
      * @param userId 企业微信成员ID
      * @return 客户列表
      * @see <a href="https://developer.work.weixin.qq.com/document/path/92113">获取客户列表</a>
@@ -49,7 +49,7 @@ public class WeworkExternalContactService extends WeworkBaseService {
     /**
      * 获取客户详情
      *
-     * @param corpId         企业微信主体ID
+     * @param corpId         企业ID
      * @param externalUserId 外部联系人的userid，注意不是企业成员的帐号
      * @return 客户详情
      * @see <a href="https://developer.work.weixin.qq.com/document/path/92114">获取客户详情</a>
@@ -71,7 +71,7 @@ public class WeworkExternalContactService extends WeworkBaseService {
     /**
      * 批量获取客户详情
      *
-     * @param corpId  企业微信主体ID
+     * @param corpId  企业ID
      * @param request 请求
      * @return 客户详情列表
      * @see <a href="https://developer.work.weixin.qq.com/document/path/92994">批量获取客户详情</a>
@@ -92,7 +92,7 @@ public class WeworkExternalContactService extends WeworkBaseService {
     /**
      * 修改客户备注信息
      *
-     * @param corpId  企业微信主体ID
+     * @param corpId  企业ID
      * @param request 请求
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/92115">修改客户备注信息</a>

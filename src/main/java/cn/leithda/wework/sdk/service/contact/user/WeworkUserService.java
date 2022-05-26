@@ -21,7 +21,7 @@ public class WeworkUserService extends WeworkBaseService {
     /**
      * 创建成员
      *
-     * @param corpId  企业微信主体ID
+     * @param corpId  企业ID
      * @param request 请求
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90195">创建成员</a>

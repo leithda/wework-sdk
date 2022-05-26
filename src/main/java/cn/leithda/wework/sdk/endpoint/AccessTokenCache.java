@@ -10,8 +10,8 @@ public interface AccessTokenCache {
     /**
      * 设置 accessToken
      *
-     * @param corpId      企业微信主体ID
-     * @param secret      企业微信秘钥
+     * @param corpId      企业ID
+     * @param secret      凭证
      * @param accessToken accessToken
      * @param expired     过期时间
      */
@@ -20,8 +20,8 @@ public interface AccessTokenCache {
     /**
      * 获取 accessToken
      *
-     * @param corpId 企业微信主体ID
-     * @param secret 企业微信秘钥
+     * @param corpId 企业ID
+     * @param secret 凭证
      * @return accessToken，失效返回空
      */
     String getAccessToken(String corpId, String secret);
