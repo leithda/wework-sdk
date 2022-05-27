@@ -5,6 +5,8 @@ import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.utils.HttpUtils;
 import cn.leithda.wework.sdk.utils.JsonUtils;
 import cn.leithda.wework.sdk.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -19,6 +21,11 @@ import java.util.Objects;
  */
 public abstract class WeworkBaseService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(WeworkBaseService.class);
+
+    /**
+     * Token 失效返回码
+     */
     private static final int TOKEN_EXPIRED_ERR_CODE = 42001;
 
     /**
@@ -47,7 +54,7 @@ public abstract class WeworkBaseService {
     /**
      * 获取Token
      *
-     * @param accessTokenType 凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）
+     * @param accessTokenType 凭证类型：凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）4=客服
      * @param corpId          企业ID
      * @param agentId         应用ID
      * @param fresh           是否强制刷新
@@ -63,6 +70,10 @@ public abstract class WeworkBaseService {
                 break;
             case APPLICATION:
                 secret = weworkSecret.getAgentIdSecret(corpId, agentId);
+                break;
+            case CUSTOMER_SERVICE:
+                secret = weworkSecret.getKfSecret(corpId);
+                break;
             default:
         }
 
@@ -75,7 +86,7 @@ public abstract class WeworkBaseService {
     /**
      * 执行Get请求
      *
-     * @param accessTokenType secret类型，凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）
+     * @param accessTokenType secret类型，凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）4=客服
      * @param corpId          企业ID
      * @param agentId         应用ID
      * @param fresh           是否强制刷新token
@@ -99,7 +110,9 @@ public abstract class WeworkBaseService {
             paramList.add(accessToken);
             paramList.addAll(Arrays.asList(param));
             String executeUrl = String.format(url, paramList.toArray());
+            LOGGER.debug("executeUrl: {}", executeUrl);
             String responseText = HttpUtils.get(executeUrl);
+            LOGGER.debug("responseText: {}", responseText);
             if (StringUtils.isEmpty(responseText)) {
                 response.setErrcode(-2);
                 response.setErrmsg("response is empty");
@@ -113,8 +126,7 @@ public abstract class WeworkBaseService {
             }
             return response;
         } catch (Exception e) {
-            // TODO: 2022/5/26 接入日志
-            e.printStackTrace();
+            LOGGER.error("executeGet", e);
         }
         return null;
     }
@@ -142,9 +154,11 @@ public abstract class WeworkBaseService {
                 return response;
             }
             String executeUrl = String.format(url, accessToken);
+            LOGGER.debug("executeUrl: {}", executeUrl);
             String requestText = JsonUtils.toJson(request);
+            LOGGER.debug("requestText: {}", requestText);
             String responseText = HttpUtils.post(executeUrl, requestText);
-
+            LOGGER.debug("responseText: {}", responseText);
             if (StringUtils.isEmpty(responseText)) {
                 response.setErrcode(-2);
                 response.setErrmsg("response is empty");
@@ -158,8 +172,7 @@ public abstract class WeworkBaseService {
             }
             return response;
         } catch (Exception e) {
-            // TODO: 2022/5/26 接入日志
-            e.printStackTrace();
+            LOGGER.error("executePost", e);
         }
         return null;
     }

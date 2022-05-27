@@ -1,11 +1,14 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 规则组权限配置
  *
  * @author leithda
  * @since 2022/5/26
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class StrategyPrivilege {
     /**
      * 查看客户列表，基础权限，不可取消

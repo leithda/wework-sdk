@@ -3,7 +3,6 @@ package cn.leithda.wework.sdk.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
-import org.springframework.util.StringUtils;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,10 +1,13 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 标签信息
  *
  * @author leithda
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class Tag {
     /**
      * 该成员添加此外部联系人所打标签的分组名称（标签功能需要企业微信升级到2.7.5及以上版本）

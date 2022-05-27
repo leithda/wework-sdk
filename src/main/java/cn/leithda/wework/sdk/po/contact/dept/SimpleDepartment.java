@@ -1,12 +1,15 @@
 package cn.leithda.wework.sdk.po.contact.dept;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 企业微信子部门信息
  *
  * @author leithda
  */
-public class WeworkSimpleDepartment {
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
+public class SimpleDepartment {
     /**
      * 部门id
      */

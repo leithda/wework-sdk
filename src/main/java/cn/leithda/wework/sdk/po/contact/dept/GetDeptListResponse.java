@@ -1,6 +1,7 @@
 package cn.leithda.wework.sdk.po.contact.dept;
 
 import cn.leithda.wework.sdk.po.BaseResponse;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
@@ -9,14 +10,15 @@ import java.util.List;
  *
  * @author leithda
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class GetDeptListResponse extends BaseResponse {
-    List<WeworkDepartment> department;
+    List<Department> department;
 
-    public List<WeworkDepartment> getDepartment() {
+    public List<Department> getDepartment() {
         return department;
     }
 
-    public void setDepartment(List<WeworkDepartment> department) {
+    public void setDepartment(List<Department> department) {
         this.department = department;
     }
 }

@@ -10,6 +10,7 @@ import java.util.List;
  * @author leithda
  * @since 2022/5/26
  */
+
 public class GetStrategyRangeResponse extends BaseResponse {
     /**
      * 规则组范围列表

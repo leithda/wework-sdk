@@ -13,12 +13,19 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <contributors>
+        <contributor>
+            <name>leithda</name>
+            <email>leithda@163.com</email>
+        </contributor>
+    </contributors>
+
     <dependencies>
         <!-- 加解密 -->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.9</version>
+            <version>1.15</version>
         </dependency>
         <!-- HttpClient -->
         <dependency>
@@ -30,7 +37,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.2.22.RELEASE</version>
+            <version>5.3.20</version>
         </dependency>
         <!-- Json -->
         <dependency>
@@ -52,7 +59,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <!-- PowerMock -->
@@ -67,6 +74,13 @@
             <artifactId>powermock-api-mockito2</artifactId>
             <version>2.0.9</version>
             <scope>test</scope>
+        </dependency>
+        <!-- 日志 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.36</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
 

@@ -1,5 +1,7 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,7 @@ import java.util.List;
  * @author leithda
  * @since 2022/5/26
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class Strategy {
     /**
      * 规则组id

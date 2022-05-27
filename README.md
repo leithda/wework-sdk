@@ -1,8 +1,6 @@
 
 
-# 企业微信服务端API封装SDK
-
-
+# SDK for 企业微信 Java
 
 ## 官方文档地址
 
@@ -12,11 +10,9 @@ https://developer.work.weixin.qq.com/document/path/90664
 
 ## 开发进度
 
-
-
 - [ ] [通讯录管理](https://developer.work.weixin.qq.com/document/path/90193)
   - [ ] 成员管理
-  - [ ] 部门管理
+  - [x] 部门管理
   - [ ] 标签管理
   - [ ] [异步批量接口](https://developer.work.weixin.qq.com/document/path/90979)
   - [ ] [通讯录回调通知](https://developer.work.weixin.qq.com/document/path/90967)

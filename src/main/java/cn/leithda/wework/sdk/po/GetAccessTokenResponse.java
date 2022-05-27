@@ -1,8 +1,11 @@
 package cn.leithda.wework.sdk.po;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 获取Token响应
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class GetAccessTokenResponse extends BaseResponse {
     /**
      * 获取到的凭证，最长为512字节

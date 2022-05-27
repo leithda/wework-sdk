@@ -1,10 +1,13 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 属性，目前支持文本、网页、小程序三种类型
  *
  * @author leithda
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class ExternalAttr {
     /**
      * 属性类型: 0-文本 1-网页 2-小程序

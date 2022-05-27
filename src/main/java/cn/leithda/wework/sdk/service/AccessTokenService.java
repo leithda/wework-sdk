@@ -5,6 +5,8 @@ import cn.leithda.wework.sdk.po.GetAccessTokenResponse;
 import cn.leithda.wework.sdk.utils.HttpUtils;
 import cn.leithda.wework.sdk.utils.JsonUtils;
 import cn.leithda.wework.sdk.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,6 +17,12 @@ import java.util.Objects;
  */
 @Service
 public class AccessTokenService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(AccessTokenService.class);
+
+    /**
+     * 获取access_token
+     */
     private static final String ACCESS_TOKEN_URL = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=%s&corpsecret=%s";
 
     @Resource
@@ -42,7 +50,7 @@ public class AccessTokenService {
                 return getAccessTokenResponse.getAccess_token();
             }
         } catch (Exception e) {
-            // TODO: 2022/5/25 接入日志
+            LOGGER.error("getAccessToken", e);
         }
         return null;
     }

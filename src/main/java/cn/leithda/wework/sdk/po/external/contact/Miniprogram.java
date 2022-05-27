@@ -1,10 +1,13 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 小程序类型的属性，appid和title字段要么同时为空表示清除该属性，要么同时不为空
  *
  * @author leithda
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class Miniprogram {
     /**
      * 小程序appid，必须是有在本企业安装授权的小程序，否则会被忽略

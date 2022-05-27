@@ -16,4 +16,13 @@ public class StringUtils extends org.springframework.util.StringUtils {
     public static boolean isNotEmpty(String str) {
         return !isEmpty(str);
     }
+
+    /**
+     * 判断字符串是否为空
+     * @param str 字符串
+     * @return true=字符串为空
+     */
+    public static boolean isEmpty(String str){
+        return hasLength(str);
+    }
 }

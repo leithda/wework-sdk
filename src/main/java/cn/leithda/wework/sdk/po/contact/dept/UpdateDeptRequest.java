@@ -1,10 +1,13 @@
 package cn.leithda.wework.sdk.po.contact.dept;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 更新部门请求
  *
  * @author leithda
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class UpdateDeptRequest {
     /**
      * 部门id

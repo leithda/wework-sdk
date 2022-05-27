@@ -1,5 +1,7 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  *
  * @author leithda
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class FollowInfo {
     /**
      * 添加了此外部联系人的企业成员userid

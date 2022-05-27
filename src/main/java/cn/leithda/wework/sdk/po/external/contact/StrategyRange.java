@@ -1,11 +1,14 @@
 package cn.leithda.wework.sdk.po.external.contact;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 规则组范围
  *
  * @author leithda
  * @since 2022/5/26
  */
+@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
 public class StrategyRange {
     /**
      * 规则组的管理范围节点类型 1-成员 2-部门
