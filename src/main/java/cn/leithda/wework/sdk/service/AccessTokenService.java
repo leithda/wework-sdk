@@ -31,12 +31,12 @@ public class AccessTokenService {
     /**
      * 获取access_token
      *
-     * @param fresh  是否强制刷新
      * @param corpId 企业ID
      * @param secret 凭证
+     * @param fresh  是否强制刷新
      * @return accessToken
      */
-    public String getAccessToken(boolean fresh, String corpId, String secret) {
+    public String getAccessToken(String corpId, String secret, boolean fresh) {
         String accessToken = accessTokenCache.getAccessToken(corpId, secret);
         if (StringUtils.isNotEmpty(accessToken) && !fresh) {
             return accessToken;

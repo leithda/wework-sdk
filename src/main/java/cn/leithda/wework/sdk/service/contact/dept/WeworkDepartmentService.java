@@ -42,7 +42,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
      *
      * @param corpId 企业ID
      * @param id     部门ID
-     * @return 部门列表
+     * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90208">获取部门列表</a>
      */
     public GetDeptListResponse getDeptList(String corpId, Long id) {
@@ -54,7 +54,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
      *
      * @param corpId 企业ID
      * @param id     部门ID
-     * @return 子部门ID列表
+     * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/95350">获取子部门ID列表</a>
      */
     public GetSimpleDeptListResponse getSimpleDeptList(String corpId, Long id) {
@@ -66,7 +66,7 @@ public class WeworkDepartmentService extends WeworkBaseService {
      *
      * @param corpId 企业ID
      * @param id     部门ID
-     * @return 部门详情
+     * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/95351">获取部门详情</a>
      */
     public GetDeptResponse getDept(String corpId, Long id) {
@@ -107,5 +107,10 @@ public class WeworkDepartmentService extends WeworkBaseService {
      */
     public BaseResponse deleteDept(String corpId, Long id) {
         return executeGet(CONTACT, corpId, null, false, BaseResponse.class, DELETE_DEPT_URL, id);
+    }
+
+    @Override
+    protected int getSecretType() {
+        return CONTACT;
     }
 }

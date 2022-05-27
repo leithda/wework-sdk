@@ -52,6 +52,13 @@ public abstract class WeworkBaseService {
     WeworkSecret weworkSecret;
 
     /**
+     * 设置当前凭证类型
+     *
+     * @return 凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）4=客服
+     */
+    protected abstract int getSecretType();
+
+    /**
      * 获取Token
      *
      * @param accessTokenType 凭证类型：凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）4=客服
@@ -60,7 +67,7 @@ public abstract class WeworkBaseService {
      * @param fresh           是否强制刷新
      */
     protected String getAccessToken(int accessTokenType, String corpId, String agentId, boolean fresh) {
-        String secret = "";
+        String secret;
         switch (accessTokenType) {
             case CONTACT:
                 secret = weworkSecret.getContactSecret(corpId);
@@ -75,12 +82,29 @@ public abstract class WeworkBaseService {
                 secret = weworkSecret.getKfSecret(corpId);
                 break;
             default:
+                secret = "";
         }
 
         if (StringUtils.isEmpty(secret)) {
             return "";
         }
-        return accessTokenService.getAccessToken(fresh, corpId, secret);
+        return accessTokenService.getAccessToken(corpId, secret, fresh);
+    }
+
+    /**
+     * 执行Get请求（使用默认凭证类型）
+     *
+     * @param corpId      企业ID
+     * @param agentId     应用ID
+     * @param fresh       是否强制刷新token
+     * @param returnClass 返回类类型
+     * @param url         请求链接（含占位符）
+     * @param param       参数
+     * @param <T>         响应类类型
+     * @return 响应
+     */
+    protected <T extends BaseResponse> T executeGet(String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object... param) {
+        return executeGet(getSecretType(), corpId, agentId, fresh, returnClass, url, param);
     }
 
     /**
@@ -97,7 +121,7 @@ public abstract class WeworkBaseService {
      * @return 响应
      */
     protected <T extends BaseResponse> T executeGet(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object... param) {
-        String accessToken = getAccessToken(accessTokenType, corpId, null, fresh);
+        String accessToken = getAccessToken(accessTokenType, corpId, agentId, fresh);
 
         try {
             T response = returnClass.newInstance();
@@ -132,6 +156,23 @@ public abstract class WeworkBaseService {
     }
 
     /**
+     * 执行Post请求(使用默认凭证类型)
+     *
+     * @param corpId      企业ID
+     * @param agentId     应用ID
+     * @param fresh       是否强制刷新token
+     * @param returnClass 返回类类型
+     * @param url         请求链接（含占位符）
+     * @param request     请求对象
+     * @param <T>         响应类类型
+     * @return 响应
+     */
+    protected <T extends BaseResponse> T executePost(String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object request) {
+        return executePost(getSecretType(), corpId, agentId, fresh, returnClass, url, request);
+    }
+
+
+    /**
      * 执行Post请求
      *
      * @param accessTokenType secret类型，凭证类型：1=通讯录，2=客户联系，3=应用凭证（需传入agentid）
@@ -145,7 +186,7 @@ public abstract class WeworkBaseService {
      * @return 响应
      */
     protected <T extends BaseResponse> T executePost(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object request) {
-        String accessToken = getAccessToken(accessTokenType, corpId, null, false);
+        String accessToken = getAccessToken(accessTokenType, corpId, agentId, fresh);
         try {
             T response = returnClass.newInstance();
             if (StringUtils.isEmpty(accessToken)) {
