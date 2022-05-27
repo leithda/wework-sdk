@@ -23,6 +23,6 @@ public class StringUtils extends org.springframework.util.StringUtils {
      * @return true=字符串为空
      */
     public static boolean isEmpty(String str){
-        return hasLength(str);
+        return !hasLength(str);
     }
 }
