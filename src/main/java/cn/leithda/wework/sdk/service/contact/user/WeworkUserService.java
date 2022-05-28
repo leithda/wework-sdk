@@ -2,7 +2,7 @@ package cn.leithda.wework.sdk.service.contact.user;
 
 import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.po.contact.user.*;
-import cn.leithda.wework.sdk.service.WeworkBaseService;
+import cn.leithda.wework.sdk.service.contact.WeworkAddressListService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @author leithda
  */
 @Service
-public class WeworkUserService extends WeworkBaseService {
+public class WeworkUserService extends WeworkAddressListService {
 
     /**
      * 创建成员
@@ -249,10 +249,5 @@ public class WeworkUserService extends WeworkBaseService {
      */
     private <T extends BaseResponse> T executePost(String corpId, Class<T> returnClass, String url, Object request) {
         return executePost(corpId, null, false, returnClass, url, request);
-    }
-
-    @Override
-    protected int getSecretType() {
-        return CONTACT;
     }
 }

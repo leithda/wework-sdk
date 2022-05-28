@@ -2,7 +2,7 @@ package cn.leithda.wework.sdk.service.contact.dept;
 
 import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.po.contact.dept.*;
-import cn.leithda.wework.sdk.service.WeworkBaseService;
+import cn.leithda.wework.sdk.service.contact.WeworkAddressListService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @author leithda
  */
 @Service
-public class WeworkDepartmentService extends WeworkBaseService {
+public class WeworkDepartmentService extends WeworkAddressListService {
     /**
      * 获取部门列表
      */
@@ -109,8 +109,4 @@ public class WeworkDepartmentService extends WeworkBaseService {
         return executeGet(CONTACT, corpId, null, false, BaseResponse.class, DELETE_DEPT_URL, id);
     }
 
-    @Override
-    protected int getSecretType() {
-        return CONTACT;
-    }
 }

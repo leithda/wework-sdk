@@ -13,7 +13,7 @@ https://developer.work.weixin.qq.com/document/path/90664
 - [ ] [通讯录管理](https://developer.work.weixin.qq.com/document/path/90193)
   - [x] 成员管理
   - [x] 部门管理
-  - [ ] 标签管理
+  - [x] 标签管理
   - [ ] [异步批量接口](https://developer.work.weixin.qq.com/document/path/90979)
   - [ ] [通讯录回调通知](https://developer.work.weixin.qq.com/document/path/90967)
   - [ ] 互联企业
