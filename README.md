@@ -119,3 +119,8 @@ https://developer.work.weixin.qq.com/document/path/90664
   - [ ] [巡查上报](https://developer.work.weixin.qq.com/document/path/93520)
   - [ ] [居民上报](https://developer.work.weixin.qq.com/document/path/93513)
   - [ ] [防疫场所码](https://developer.work.weixin.qq.com/document/path/95465)
+
+## 回调接入指南
+1. 回调地址中加入 CorpID，以及 callbackType 用于区分获取回调的不同设置
+2. 实现 `WeworkCallbackToken` 接口，根据企业ID及type获取token及aeskey逻辑
+3. 实现诸如 CreateUserCallbackProcessor 中的 `#doExecute` 完成业务处理
