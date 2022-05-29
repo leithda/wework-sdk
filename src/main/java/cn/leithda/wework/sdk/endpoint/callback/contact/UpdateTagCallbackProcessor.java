@@ -8,7 +8,7 @@ import cn.leithda.wework.sdk.po.callback.contact.UpdateTagCallbackEntity;
  * @author leithda
  * @since 2022/5/29
  */
-public interface UpdateTagCallbackProcessor extends ChangeContactCallbackProcessor<UpdateTagCallbackEntity> {
+public interface UpdateTagCallbackProcessor extends ChangeContactCallbackProcessorBase<UpdateTagCallbackEntity> {
     @Override
     default String getChangeType() {
         return "update_tag";

@@ -8,7 +8,7 @@ import cn.leithda.wework.sdk.po.callback.contact.UpdateUserCallbackEntity;
  * @author leithda
  * @since 2022/5/29
  */
-public interface UpdateUserCallbackProcessor extends ChangeContactCallbackProcessor<UpdateUserCallbackEntity> {
+public interface UpdateUserCallbackProcessor extends ChangeContactCallbackProcessorBase<UpdateUserCallbackEntity> {
     @Override
     default String getChangeType() {
         return "update_user";

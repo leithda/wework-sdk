@@ -8,7 +8,8 @@ import cn.leithda.wework.sdk.po.callback.contact.CreateUserCallbackEntity;
  * @author leithda
  * @since 2022/5/28
  */
-public interface CrateUserCallbackProcessor extends ChangeContactCallbackProcessor<CreateUserCallbackEntity> {
+public interface CrateUserCallbackProcessor extends ChangeContactCallbackProcessorBase<CreateUserCallbackEntity> {
+
     @Override
     default String getChangeType() {
         return "create_user";

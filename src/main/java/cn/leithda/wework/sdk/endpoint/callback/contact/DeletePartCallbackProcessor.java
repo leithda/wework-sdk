@@ -8,7 +8,7 @@ import cn.leithda.wework.sdk.po.callback.contact.DeletePartCallbackEntity;
  * @author leithda
  * @since 2022/5/29
  */
-public interface DeletePartCallbackProcessor extends ChangeContactCallbackProcessor<DeletePartCallbackEntity> {
+public interface DeletePartCallbackProcessor extends ChangeContactCallbackProcessorBase<DeletePartCallbackEntity> {
     @Override
     default String getChangeType() {
         return "delete_party";

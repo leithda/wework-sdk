@@ -15,7 +15,7 @@ https://developer.work.weixin.qq.com/document/path/90664
   - [x] 部门管理
   - [x] 标签管理
   - [ ] [异步批量接口](https://developer.work.weixin.qq.com/document/path/90979)
-  - [ ] [通讯录回调通知](https://developer.work.weixin.qq.com/document/path/90967)
+  - [x] [通讯录回调通知](https://developer.work.weixin.qq.com/document/path/90967)
   - [ ] 互联企业
   - [ ] [异步导出接口](https://developer.work.weixin.qq.com/document/path/94850)
 - [ ] [客户联系](https://developer.work.weixin.qq.com/document/path/92109)
