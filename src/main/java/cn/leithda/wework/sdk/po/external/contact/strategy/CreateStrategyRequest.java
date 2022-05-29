@@ -1,23 +1,16 @@
-package cn.leithda.wework.sdk.po.external.contact;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+package cn.leithda.wework.sdk.po.external.contact.strategy;
 
 import java.util.List;
 
 /**
- * 客户联系规则
+ * 创建规则组请求
  *
  * @author leithda
  * @since 2022/5/26
  */
-@JsonIgnoreProperties(ignoreUnknown = true) // 反序列化时，忽略类中不存在的属性
-public class Strategy {
+public class CreateStrategyRequest {
     /**
-     * 规则组id
-     */
-    private Long strategy_id;
-    /**
-     * 父规则组id， 如果当前规则组没父规则组，则为0
+     * 父规则组id
      */
     private Long parent_id;
     /**
@@ -25,25 +18,17 @@ public class Strategy {
      */
     private String strategy_name;
     /**
-     * 规则组创建时间戳
-     */
-    private Long create_time;
-    /**
-     * 规则组管理员userid列表
+     * 规则组管理员userid列表，不可配置超级管理员，每个规则组最多可配置20个负责人
      */
     private List<String> admin_list;
     /**
-     * 权限列表
+     * 权限
      */
     private StrategyPrivilege privilege;
-
-    public Long getStrategy_id() {
-        return strategy_id;
-    }
-
-    public void setStrategy_id(Long strategy_id) {
-        this.strategy_id = strategy_id;
-    }
+    /**
+     * 规则组管理范围
+     */
+    private List<StrategyRange> range;
 
     public Long getParent_id() {
         return parent_id;
@@ -61,14 +46,6 @@ public class Strategy {
         this.strategy_name = strategy_name;
     }
 
-    public Long getCreate_time() {
-        return create_time;
-    }
-
-    public void setCreate_time(Long create_time) {
-        this.create_time = create_time;
-    }
-
     public List<String> getAdmin_list() {
         return admin_list;
     }
@@ -83,5 +60,13 @@ public class Strategy {
 
     public void setPrivilege(StrategyPrivilege privilege) {
         this.privilege = privilege;
+    }
+
+    public List<StrategyRange> getRange() {
+        return range;
+    }
+
+    public void setRange(List<StrategyRange> range) {
+        this.range = range;
     }
 }

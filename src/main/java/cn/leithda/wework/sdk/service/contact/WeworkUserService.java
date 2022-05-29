@@ -1,4 +1,4 @@
-package cn.leithda.wework.sdk.service.contact.user;
+package cn.leithda.wework.sdk.service.contact;
 
 import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.po.contact.user.*;

@@ -1,4 +1,4 @@
-package cn.leithda.wework.sdk.po.external.contact;
+package cn.leithda.wework.sdk.po.external.contact.strategy;
 
 import cn.leithda.wework.sdk.po.BaseResponse;
 

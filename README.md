@@ -17,7 +17,7 @@ https://developer.work.weixin.qq.com/document/path/90664
 - [ ] [客户联系](https://developer.work.weixin.qq.com/document/path/92109)
     - [ ] 企业服务人员管理
     - [x] 客户管理
-    - [ ] 客户标签管理
+    - [x] 客户标签管理
     - [ ] 在职继承
     - [ ] 离职继承
     - [ ] 客户群管理

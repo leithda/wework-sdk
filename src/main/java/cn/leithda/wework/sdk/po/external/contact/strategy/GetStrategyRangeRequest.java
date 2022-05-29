@@ -1,4 +1,4 @@
-package cn.leithda.wework.sdk.po.external.contact;
+package cn.leithda.wework.sdk.po.external.contact.strategy;
 
 /**
  * 获取规则组管理范围请求
