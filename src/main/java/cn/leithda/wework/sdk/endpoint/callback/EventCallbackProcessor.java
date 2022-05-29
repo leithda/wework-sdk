@@ -31,7 +31,9 @@ public interface EventCallbackProcessor {
         if (!Objects.equals(entity.getEvent(), getEvent())) {
             return;
         }
-        getChangeTypeProcessors().forEach(processor -> processor.execute(entity, msg));
-
+        List<? extends ChangeTypeCallbackProcessor<? extends BaseCallbackEntity>> processors = getChangeTypeProcessors();
+        if(Objects.nonNull(processors) && processors.size() > 0) {
+            processors.forEach(processor -> processor.execute(entity, msg));
+        }
     }
 }
