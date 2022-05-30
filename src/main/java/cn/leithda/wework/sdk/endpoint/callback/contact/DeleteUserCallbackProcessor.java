@@ -4,7 +4,6 @@ import cn.leithda.wework.sdk.po.callback.contact.DeleteUserCallbackEntity;
 
 public interface DeleteUserCallbackProcessor extends ChangeContactCallbackProcessorBase<DeleteUserCallbackEntity> {
 
-
     @Override
     default String getChangeType() {
         return "delete_user";

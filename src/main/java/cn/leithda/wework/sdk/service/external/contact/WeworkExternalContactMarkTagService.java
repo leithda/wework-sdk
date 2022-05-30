@@ -3,6 +3,7 @@ package cn.leithda.wework.sdk.service.external.contact;
 import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.po.external.contact.marktag.MarkTagRequest;
 import cn.leithda.wework.sdk.service.WeworkBaseService;
+import org.springframework.stereotype.Service;
 
 /**
  * 编辑客户标签
@@ -10,6 +11,7 @@ import cn.leithda.wework.sdk.service.WeworkBaseService;
  * @author leithda
  * @since 2022/5/29
  */
+@Service
 public class WeworkExternalContactMarkTagService extends WeworkBaseService {
 
     /**

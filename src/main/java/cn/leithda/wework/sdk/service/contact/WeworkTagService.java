@@ -3,6 +3,7 @@ package cn.leithda.wework.sdk.service.contact;
 import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.po.contact.tag.*;
 import cn.leithda.wework.sdk.service.contact.WeworkAddressListService;
+import org.springframework.stereotype.Service;
 
 /**
  * 标签服务
@@ -10,6 +11,7 @@ import cn.leithda.wework.sdk.service.contact.WeworkAddressListService;
  * @author leithda
  * @since 2022/5/28
  */
+@Service
 public class WeworkTagService extends WeworkAddressListService {
 
     /**
