@@ -19,9 +19,9 @@ import java.util.Objects;
  *
  * @author leithda
  */
-public abstract class WeworkBaseService {
+public abstract class BaseWeworkService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WeworkBaseService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseWeworkService.class);
 
     /**
      * Token 失效返回码
@@ -94,17 +94,19 @@ public abstract class WeworkBaseService {
     /**
      * 执行Get请求（使用默认凭证类型）
      *
+     * @param <T>         响应类类型
      * @param corpId      企业ID
-     * @param agentId     应用ID
-     * @param fresh       是否强制刷新token
+     * @param agentId     应用ID(指定时，通过指定应用秘钥访问接口)
      * @param returnClass 返回类类型
      * @param url         请求链接（含占位符）
      * @param param       参数
-     * @param <T>         响应类类型
      * @return 响应
      */
-    protected <T extends BaseResponse> T executeGet(String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object... param) {
-        return executeGet(getSecretType(), corpId, agentId, fresh, returnClass, url, param);
+    protected <T extends BaseResponse> T executeGet(String corpId, String agentId, Class<T> returnClass, String url, Object... param) {
+        if (StringUtils.isNotEmpty(agentId)) {
+            return executeGet(APPLICATION, corpId, agentId, false, returnClass, url, param);
+        }
+        return executeGet(getSecretType(), corpId, agentId, false, returnClass, url, param);
     }
 
     /**
@@ -120,9 +122,8 @@ public abstract class WeworkBaseService {
      * @param <T>             响应类类型
      * @return 响应
      */
-    protected <T extends BaseResponse> T executeGet(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object... param) {
+    private <T extends BaseResponse> T executeGet(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object... param) {
         String accessToken = getAccessToken(accessTokenType, corpId, agentId, fresh);
-
         try {
             T response = returnClass.newInstance();
             if (StringUtils.isEmpty(accessToken)) {
@@ -158,17 +159,19 @@ public abstract class WeworkBaseService {
     /**
      * 执行Post请求(使用默认凭证类型)
      *
+     * @param <T>         响应类类型
      * @param corpId      企业ID
-     * @param agentId     应用ID
-     * @param fresh       是否强制刷新token
+     * @param agentId     应用ID(指定时，通过指定应用秘钥访问接口)
      * @param returnClass 返回类类型
      * @param url         请求链接（含占位符）
      * @param request     请求对象
-     * @param <T>         响应类类型
      * @return 响应
      */
-    protected <T extends BaseResponse> T executePost(String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object request) {
-        return executePost(getSecretType(), corpId, agentId, fresh, returnClass, url, request);
+    protected <T extends BaseResponse> T executePost(String corpId, String agentId, Class<T> returnClass, String url, Object request) {
+        if (StringUtils.isNotEmpty(agentId)) {
+            return executePost(APPLICATION, corpId, agentId, false, returnClass, url, request);
+        }
+        return executePost(getSecretType(), corpId, agentId, false, returnClass, url, request);
     }
 
 
@@ -185,7 +188,7 @@ public abstract class WeworkBaseService {
      * @param <T>             响应类类型
      * @return 响应
      */
-    protected <T extends BaseResponse> T executePost(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object request) {
+    private <T extends BaseResponse> T executePost(int accessTokenType, String corpId, String agentId, boolean fresh, Class<T> returnClass, String url, Object request) {
         String accessToken = getAccessToken(accessTokenType, corpId, agentId, fresh);
         try {
             T response = returnClass.newInstance();

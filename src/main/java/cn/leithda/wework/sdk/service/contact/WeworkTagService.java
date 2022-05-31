@@ -2,17 +2,17 @@ package cn.leithda.wework.sdk.service.contact;
 
 import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.po.contact.tag.*;
-import cn.leithda.wework.sdk.service.contact.WeworkAddressListService;
+import cn.leithda.wework.sdk.service.BaseWeworkService;
 import org.springframework.stereotype.Service;
 
 /**
- * 标签服务
+ * 标签管理
  *
  * @author leithda
  * @since 2022/5/28
  */
 @Service
-public class WeworkTagService extends WeworkAddressListService {
+public class WeworkTagService extends BaseWeworkService {
 
     /**
      * 创建标签
@@ -51,80 +51,90 @@ public class WeworkTagService extends WeworkAddressListService {
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90210">创建标签</a>
      */
-    public CreateTagResponse createTag(String corpId, CreateTagRequest request) {
-        return executePost(corpId, null, false, CreateTagResponse.class, CREATE_TAG_URL, request);
+    public CreateTagResponse createTag(String corpId, String agentId, CreateTagRequest request) {
+        return executePost(corpId, agentId, CreateTagResponse.class, CREATE_TAG_URL, request);
     }
 
     /**
      * 更新标签
      *
      * @param corpId  企业ID
+     * @param agentId 应用ID(指定时通过指定应用访问API)
      * @param request 请求
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90211">更新标签</a>
      */
-    public BaseResponse updateTag(String corpId, UpdateTagRequest request) {
-        return executePost(corpId, null, false, BaseResponse.class, UPDATE_TAG_URL, request);
+    public BaseResponse updateTag(String corpId, String agentId, UpdateTagRequest request) {
+        return executePost(corpId, agentId, BaseResponse.class, UPDATE_TAG_URL, request);
     }
 
     /**
      * 删除标签
      *
-     * @param copId 企业ID
-     * @param tagId 标签ID
+     * @param corpId  企业ID
+     * @param agentId 应用ID(指定时通过指定应用访问API)
+     * @param tagId   标签ID
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90212">删除标签</a>
      */
-    public BaseResponse deleteTag(String copId, Long tagId) {
-        return executeGet(copId, null, false, BaseResponse.class, DELETE_TAG_URL, tagId);
+    public BaseResponse deleteTag(String corpId, String agentId, Long tagId) {
+        return executeGet(corpId, agentId, BaseResponse.class, DELETE_TAG_URL, tagId);
     }
 
     /**
      * 获取标签成员
      *
-     * @param corpId 企业ID
-     * @param tagId  标签ID
+     * @param corpId  企业ID
+     * @param agentId 应用ID(指定时通过指定应用访问API)
+     * @param tagId   标签ID
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90213">获取标签成员</a>
      */
-    public GetTagUsersResponse getTagUsers(String corpId, Long tagId) {
-        return executeGet(corpId, null, false, GetTagUsersResponse.class, GET_TAG_USERS_URL, tagId);
+    public GetTagUsersResponse getTagUsers(String corpId, String agentId, Long tagId) {
+        return executeGet(corpId, agentId, GetTagUsersResponse.class, GET_TAG_USERS_URL, tagId);
     }
 
     /**
      * 增加标签成员
      *
      * @param corpId  企业ID
+     * @param agentId 应用ID(指定时通过指定应用访问API)
      * @param request 请求
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90214">增加标签成员</a>
      */
-    public AddTagUsersResponse addTagUsers(String corpId, AddTagUsersRequest request) {
-        return executePost(corpId, null, false, AddTagUsersResponse.class, ADD_TAG_USERS_URL, request);
+    public AddTagUsersResponse addTagUsers(String corpId, String agentId, AddTagUsersRequest request) {
+        return executePost(corpId, agentId, AddTagUsersResponse.class, ADD_TAG_USERS_URL, request);
     }
 
     /**
      * 删除标签成员
      *
      * @param corpId  企业ID
+     * @param agentId 应用ID(指定时通过指定应用访问API)
      * @param request 请求
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90215">删除标签成员</a>
      */
-    public DelTagUsersResponse delTagUsers(String corpId, DelTagUsersRequest request) {
-        return executePost(corpId, null, false, DelTagUsersResponse.class, DEL_TAG_USERS_URL, request);
+    public DelTagUsersResponse delTagUsers(String corpId, String agentId, DelTagUsersRequest request) {
+        return executePost(corpId, agentId, DelTagUsersResponse.class, DEL_TAG_USERS_URL, request);
     }
 
     /**
      * 获取标签列表
      *
-     * @param corpId 企业ID
+     * @param corpId  企业ID
+     * @param agentId 应用ID(指定时通过指定应用访问API)
      * @return 响应
      * @see <a href="https://developer.work.weixin.qq.com/document/path/90216">获取标签列表</a>
      */
-    public GetTagListResponse getTagList(String corpId) {
-        return executeGet(corpId, null, false, GetTagListResponse.class, GET_TAG_LIST_URL);
+    public GetTagListResponse getTagList(String corpId, String agentId) {
+        return executeGet(corpId, agentId, GetTagListResponse.class, GET_TAG_LIST_URL);
     }
 
 
+    @Override
+    protected int getSecretType() {
+        return CONTACT;
+    }
 }
