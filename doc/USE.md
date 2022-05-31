@@ -11,7 +11,7 @@
         </dependency>
 ```
 
-
+- 增加spring扫描包 `cn.leithda.wework.sdk` 完成相关服务类的管理
 
 - 实现 `WeworkCallbackToken` 接口完成基于corpId与agentid 的获取 secret 操作
 
@@ -32,4 +32,5 @@
 |            | 客户管理         | `WeworkExternalContactService`<br/>`WeworkExternalContactStrategyService` |
 |            | 客户标签管理     | `WeworkExternalContactTagService`<br/>`WeworkExternalContactMarkTagService` |
 |            | 在职继承         | `WeworkTransferService`                                      |
+|            | 客户群管理       | `WeworkGroupService`                                         |
 
