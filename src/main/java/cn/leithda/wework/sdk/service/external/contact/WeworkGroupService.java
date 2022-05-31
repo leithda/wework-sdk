@@ -2,7 +2,12 @@ package cn.leithda.wework.sdk.service.external.contact;
 
 import cn.leithda.wework.sdk.po.external.contact.group.*;
 import cn.leithda.wework.sdk.service.BaseWeworkService;
+import cn.leithda.wework.sdk.utils.StringUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * 客户群管理
@@ -36,7 +41,17 @@ public class WeworkGroupService extends BaseWeworkService {
      * @see <a href="https://developer.work.weixin.qq.com/document/path/92120">获取客户群列表</a>
      */
     public GetGroupListResponse getGroupList(String corpId, String agentId, GetGroupListRequest request) {
-        return executePost(corpId, agentId, GetGroupListResponse.class, GET_GROUP_LIST_URL, request);
+        String cursor;
+        GetGroupListResponse response = null;
+        List<GetGroupListResponse.GroupList> groupList = new ArrayList<>();
+        do {
+            GetGroupListResponse getGroupListResponse = executePost(corpId, agentId, GetGroupListResponse.class, GET_GROUP_LIST_URL, request);
+            response = Objects.isNull(response) ? getGroupListResponse : response;
+            groupList.addAll(getGroupListResponse.getGroup_chat_list());
+            cursor = getGroupListResponse.getNext_cursor();
+        } while (StringUtils.isNotEmpty(cursor));
+        response.setGroup_chat_list(groupList);
+        return response;
     }
 
     /**
