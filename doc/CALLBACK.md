@@ -4,9 +4,9 @@
 
 
 ## 接入回调
-1. 通过回调地址实现 corpId及 callbackType的获取
+1. 通过回调地址实现 corpId及 callbackType 的获取，其中callbackType用于区分同主体不同回调配置。注：可使用`@PathVariable`方式获取
 2. 实现 `WeworkCallbackToken` 接口，根据`corpId`及`callbackType`获取token及aeskey逻辑
-3. 实现诸如 CreateUserCallbackProcessor 中的 `#doExecute` 完成业务处理
+3. 实现下方表格中接口的 `#doExecute` 方法完成业务处理
 4. 使用 `CallbackMsgParser` 完成回调的验签及消息解密
 5. 将解密后的消息作为参数传入 `CallbackMsgDispatcher#dispath` 方法即可
 

@@ -20,17 +20,16 @@
 
 ## 服务类列表
 
-| 模块       |                  |                                                              |
-| ---------- | ---------------- | ------------------------------------------------------------ |
-| 通讯录管理 |                  |                                                              |
-|            | 成员管理         | `WeworkUserService`                                          |
-|            | 部门管理         | `WeworkDepartmentService`                                    |
-|            | 标签管理         | `WeworkTagService`                                           |
-|            |                  |                                                              |
-| 客户联系   |                  |                                                              |
-|            | 企业服务人员管理 |                                                              |
-|            | 客户管理         | `WeworkExternalContactService`<br/>`WeworkExternalContactStrategyService` |
-|            | 客户标签管理     | `WeworkExternalContactTagService`<br/>`WeworkExternalContactMarkTagService` |
-|            | 在职继承         | `WeworkTransferService`                                      |
-|            | 客户群管理       | `WeworkGroupService`                                         |
+| 模块       |              |                                   |
+| ---------- | ------------ | --------------------------------- |
+| 通讯录管理 |              |                                   |
+|            | 成员管理     | `WeworkUserService`               |
+|            | 部门管理     | `WeworkDepartmentService`         |
+|            | 标签管理     | `WeworkTagService`                |
+|            |              |                                   |
+| 客户联系   |              |                                   |
+|            | 客户管理     | `WeworkExternalContactService`    |
+|            | 客户标签管理 | `WeworkExternalContactTagService` |
+|            | 在职继承     | `WeworkTransferService`           |
+|            | 客户群管理   | `WeworkGroupService`              |
 
