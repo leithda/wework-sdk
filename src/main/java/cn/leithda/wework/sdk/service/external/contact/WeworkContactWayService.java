@@ -4,6 +4,7 @@ import cn.leithda.wework.sdk.po.BaseResponse;
 import cn.leithda.wework.sdk.po.external.contactway.*;
 import cn.leithda.wework.sdk.service.BaseWeworkService;
 import cn.leithda.wework.sdk.utils.StringUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.Objects;
  * @author leithda
  * @since 2022/6/1
  */
+@Service
 public class WeworkContactWayService extends BaseWeworkService {
 
     /**
