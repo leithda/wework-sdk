@@ -1,9 +1,9 @@
 package cn.leithda.wework.sdk.service.external.contact;
 
-import cn.leithda.wework.sdk.po.external.contact.transfer.TransferCustomerRequest;
-import cn.leithda.wework.sdk.po.external.contact.transfer.TransferCustomerResponse;
-import cn.leithda.wework.sdk.po.external.contact.transfer.TransferResultRequest;
-import cn.leithda.wework.sdk.po.external.contact.transfer.TransferResultResponse;
+import cn.leithda.wework.sdk.po.external.transfer.TransferCustomerRequest;
+import cn.leithda.wework.sdk.po.external.transfer.TransferCustomerResponse;
+import cn.leithda.wework.sdk.po.external.transfer.TransferResultRequest;
+import cn.leithda.wework.sdk.po.external.transfer.TransferResultResponse;
 import cn.leithda.wework.sdk.service.BaseWeworkService;
 import org.springframework.stereotype.Service;
 

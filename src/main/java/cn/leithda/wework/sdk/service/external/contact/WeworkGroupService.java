@@ -1,6 +1,6 @@
 package cn.leithda.wework.sdk.service.external.contact;
 
-import cn.leithda.wework.sdk.po.external.contact.group.*;
+import cn.leithda.wework.sdk.po.external.group.*;
 import cn.leithda.wework.sdk.service.BaseWeworkService;
 import cn.leithda.wework.sdk.utils.StringUtils;
 import org.springframework.stereotype.Service;

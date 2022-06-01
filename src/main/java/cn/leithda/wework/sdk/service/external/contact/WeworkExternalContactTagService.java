@@ -1,9 +1,9 @@
 package cn.leithda.wework.sdk.service.external.contact;
 
 import cn.leithda.wework.sdk.po.BaseResponse;
-import cn.leithda.wework.sdk.po.external.contact.marktag.MarkTagRequest;
-import cn.leithda.wework.sdk.po.external.contact.strategytag.*;
-import cn.leithda.wework.sdk.po.external.contact.tag.*;
+import cn.leithda.wework.sdk.po.external.marktag.MarkTagRequest;
+import cn.leithda.wework.sdk.po.external.strategytag.*;
+import cn.leithda.wework.sdk.po.external.tag.*;
 import cn.leithda.wework.sdk.service.BaseWeworkService;
 import org.springframework.stereotype.Service;
 
