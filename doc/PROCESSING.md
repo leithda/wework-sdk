@@ -17,7 +17,7 @@
     - [x] 在职继承
     - [ ] 离职继承
     - [x] 客户群管理
-    - [ ] 联系我与客户入群方式
+    - [x] 联系我与客户入群方式
     - [ ] [客户朋友圈](https://developer.work.weixin.qq.com/document/path/93506)
     - [ ] 消息推送
     - [ ] 统计管理
@@ -49,8 +49,8 @@
     - [ ] 互联企业消息推送
     - [ ] 家校消息推送
 - [ ] [素材管理](https://developer.work.weixin.qq.com/document/path/91054)
-    - [ ] [上传临时素材](https://developer.work.weixin.qq.com/document/path/90253)
-    - [ ] [上传图片](https://developer.work.weixin.qq.com/document/path/90256)
+    - [x] [上传临时素材](https://developer.work.weixin.qq.com/document/path/90253)
+    - [x] [上传图片](https://developer.work.weixin.qq.com/document/path/90256)
     - [ ] [获取临时素材](https://developer.work.weixin.qq.com/document/path/90254)
     - [ ] [获取高清语音素材](https://developer.work.weixin.qq.com/document/path/90255)
 - [ ] OA
