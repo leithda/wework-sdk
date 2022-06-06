@@ -21,7 +21,7 @@
     - [ ] [客户朋友圈](https://developer.work.weixin.qq.com/document/path/93506)
     - [ ] 消息推送
     - [ ] 统计管理
-    - [ ] [变更回调](https://developer.work.weixin.qq.com/document/path/92129)
+    - [x] [变更回调](https://developer.work.weixin.qq.com/document/path/92129)
     - [ ] [管理商品图册](https://developer.work.weixin.qq.com/document/path/95096)
     - [ ] [管理聊天敏感词](https://developer.work.weixin.qq.com/document/path/95097)
     - [ ] [上传附件资源](https://developer.work.weixin.qq.com/document/path/95098)

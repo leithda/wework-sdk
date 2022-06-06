@@ -24,3 +24,23 @@
 | [成员标签变更](https://developer.work.weixin.qq.com/document/path/90972) | `UpdateTagCallbackProcessor`      |
 | [异步任务完成](https://developer.work.weixin.qq.com/document/path/90973) | `BatchJobCallbackResultProcessor` |
 
+
+
+### 客户联系变更回调
+
+| 回调                         | 待实现接口                                |
+| ---------------------------- | ----------------------------------------- |
+| 添加企业客户事件             | `AddExternalContactCallbackProcessor`     |
+| 编辑企业客户事件             | `EditExternalContactCallbackProcessor`    |
+| 外部联系人免验证添加成员事件 | `AddHalfExternalContactCallbackProcessor` |
+| 删除企业客户事件             | `DelExternalContactCallbackProcessor`     |
+| 删除跟进成员事件             | `DelFollowUserCallbackProcessor`          |
+| 客户接替失败事件             | `TransferFailCallbackProcessor`           |
+| 客户群创建事件               | `CreateChatCallbackProcessor`             |
+| 客户群变更事件               | `UpdateChatCallbackProcessor`             |
+| 客户群解散事件               | `DismissChatCallbackProcessor`            |
+| 企业客户标签创建事件         | `CreateTagCallbackProcessor`              |
+| 企业客户标签变更事件         | `UpdateTagCallbackProcessor`              |
+| 企业客户标签删除事件         | `DeleteTagCallbackProcessor`              |
+| 企业客户标签重排事件         | `ShuffleTagCallbackProcessor`             |
+
